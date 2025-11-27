@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗡️ ThriftSenshi 🗡️ - Akhilesh × Anil × Gowtham</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff6b9d, #4ecdc4, #45b7d1);
+            min-height: 100vh;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #ff4757, #ffa502);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .owner-edit {
+            background: #ffeb3b;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px auto;
+            max-width: 600px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-card {
+            background: white;
+            border: 3px solid #ffeb3b;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+        .brand-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4757;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .original-price { color: #999; text-decoration: line-through; }
+        .thrift-price { color: #00b894; }
+        .add-to-cart {
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .add-to-cart:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,184,148,0.4); }
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            min-width: 300px;
+        }
+        .upi-payments {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .upi-qr {
+            width: 150px;
+            height: 150px;
+            margin: 10px auto;
+            border: 2px solid #ffeb3b;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+            .products-grid { grid-template-columns: 1fr; padding: 20px 10px; }
+            .cart { position: static; margin: 20px auto; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 👇 OWNER: EDIT PRODUCTS HERE 👇 -->
+    <div class="owner-edit">
+        🔧 <strong>OWNER EDIT ZONE (Akhilesh/Anil/Gowtham):</strong> 
+        Edit products below 👇 Save as index.html
+    </div>
+
+    <div class="header">
+        <h1>🗡️ ThriftSenshi 🗡️</h1>
+        <p>Akhilesh × Anil × Gowtham | Rajamahendravaram's Anime Thrift Kings</p>
+    </div>
+
+    <!-- PRODUCTS - ADD/EDIT HERE -->
+    <div class="products-grid" id="productsGrid">
+        <!-- PRODUCT 1 -->
+        <div class="product-card">
+            <div class="brand-tag">NIKE</div>
+            <img class="product-image" src="https://images.unsplash.com/photo-1542272604-787c3835535a?w=300" alt="Nike Hoodie">
+            <h3>Air Max Hoodie</h3>
+            <p><strong>Size:</strong> M | <strong>Condition:</strong> 9/10</p>
+            <div class="price">
+                <span class="original-price">₹2500</span> 
+                <span class="thrift-price">₹499</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(1)">➕ Add to Cart</button>
+        </div>
+
+        <!-- PRODUCT 2 - ADD YOUR PHOTOS HERE -->
+        <div class="product-card">
+            <div class="brand-tag">ZARA</div>
+            <img class="product-image" src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=300" alt="Zara Shirt">
+            <h3>Trendy Oversized Shirt</h3>
+            <p><strong>Size:</strong> L | <strong>Condition:</strong> 8.5/10</p>
+            <div class="price">
+                <span class="original-price">₹1800</span> 
+                <span class="thrift-price">₹399</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(2)">➕ Add to Cart</button>
+        </div>
+
+        <!-- ADD MORE PRODUCTS LIKE THIS -->
+        <!-- Copy above div, change img src, name, price, size -->
+    </div>
+
+    <!-- SHOPPING CART -->
+    <div class="cart" id="cart" style="display:none;">
+        <h3>🛒 Your Cart (<span id="cartCount">0</span>)</h3>
+        <div id="cartItems"></div>
+        <div class="upi-payments">
+            <h4>💳 Pay via UPI</h4>
+            <p><strong>ThriftSenshi</strong><br>UPI ID: thriftsenshi@paytm</p>
+            <img class="upi-qr" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=150" alt="UPI QR">
+            <p>OR Send ₹<span id="totalAmount">0</span> to above UPI<br>
+            Screenshot & WhatsApp: +91-XXXXXXXXXX</p>
+            <button onclick="clearCart()" style="background:#ff4757;color:white;border:none;padding:10px;border-radius:10px;">Clear Cart</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        
+        function addToCart(productId) {
+            cart.push(productId);
+            updateCart();
+            document.getElementById('cart').style.display = 'block';
+        }
+        
+        function updateCart() {
+            document.getElementById('cartCount').textContent = cart.length;
+            document.getElementById('totalAmount').textContent = cart.length * 400; // Average ₹400
+            
+            let cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = cart.map(id => 
+                `<div style="padding:10px;border-bottom:1px solid #eee;">
+                    Item ${id} - ₹400
+                </div>`
+            ).join('');
+        }
+        
+        function clearCart() {
+            cart = [];
+            updateCart();
+            document.getElementById('cart').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
